@@ -1,0 +1,271 @@
+/* General styling */
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #b3cde0; /* Pastel Blue */
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Header and Footer */
+header, footer {
+  background-color: #87ceeb; /* Sky Blue */
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+}
+
+header h1 {
+  font-size: 2em;
+  color: #fff;
+}
+
+footer p {
+  font-size: 1.2em;
+  color: #fff;
+}
+
+/* Heart Shape */
+.heart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: 50px;
+}
+
+.heart {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  background-color: #fff; /* White Heart */
+  transform: rotate(-45deg); /* Create heart shape */
+  margin-top: 50px;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%; /* Rounded edges for the heart */
+}
+
+.heart::before {
+  left: 0;
+  top: -150px;
+}
+
+.heart::after {
+  left: 150px;
+  top: 0;
+}
+
+/* Text Inside the Heart */
+.text-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg); /* Center the text inside the heart */
+  color: #333;
+  text-align: center;
+  padding: 20px;
+  width: 230px; /* Adjust width for text fitting */
+  z-index: 1; /* Ensure text appears above heart */
+  word-wrap: break-word; /* Wrap text correctly */
+}
+
+.text-container h2 {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+}
+
+.text-container p {
+  font-size: 1.1em;
+  line-height: 1.4em;
+}
+
+/* Images and GIFs */
+.image1, .gif1, .gif2 {
+  width: 200px; /* Increase size for the images */
+  position: absolute;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.image1 {
+  top: 10%;
+  left: 10%;
+}
+
+.gif1 {
+  bottom: 10%;
+  right: 10%;
+  transform: translate(-50%, -50%);
+}
+
+.gif2 {
+  top: 10%;
+  right: 10%;
+}
+
+.bottom-left-image {
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+}
+
+.image1:hover, .gif1:hover, .gif2:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* Balloon container */
+.balloon-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Balloon group */
+.balloon-group {
+  position: absolute;
+  bottom: -150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  animation: floatUp 4s linear infinite;
+}
+
+/* Heart-Shaped Balloon */
+.balloon {
+  width: 50px;
+  height: 60px;
+  background-color: #00008b;
+  clip-path: path("M25 5 C5 -5 -10 15 10 40 C20 55 25 60 25 60 C25 60 30 55 40 40 C60 15 45 -5 25 5 Z");
+  position: relative;
+}
+
+/* Balloon String */
+.string {
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  width: 4px;
+  height: 100px;
+  background: #00008b;
+  transform: translateX(-50%);
+}
+
+/* Balloon Bundle (Tying the strings together) */
+.bundle {
+  position: absolute;
+  bottom: -70px;
+  width: 8px;
+  height: 12px;
+  background: #00008b;
+  border-radius: 5px;
+}
+
+/* Animation for floating balloons */
+@keyframes floatUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+#playPauseBtn {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #00008b;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+}
+
+#playPauseBtn:hover {
+  background-color: #5a5aff;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .heart {
+    width: 250px;
+    height: 250px;
+  }
+
+  .heart::before,
+  .heart::after {
+    width: 250px;
+    height: 250px;
+  }
+
+  header h1 {
+    font-size: 1.5em;
+  }
+
+  footer p {
+    font-size: 1em;
+  }
+
+  .text-container h2 {
+    font-size: 1.2em;
+  }
+
+  .text-container p {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .heart {
+    width: 200px;
+    height: 200px;
+  }
+
+  .heart::before,
+  .heart::after {
+    width: 200px;
+    height: 200px;
+  }
+
+  header h1 {
+    font-size: 1.2em;
+  }
+
+  footer p {
+    font-size: 0.9em;
+  }
+
+  .text-container h2 {
+    font-size: 1em;
+  }
+}
